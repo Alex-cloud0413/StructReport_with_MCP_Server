@@ -1,4 +1,4 @@
-# Driver Data MCP Server
+# StrucReport with MCP Server
 
 智驾数据采集汇总半自动化方案的MCP Server实现。
 
@@ -151,3 +151,4 @@ CREATE TABLE driver_reports (
 ## 许可证
 
 MIT License
+
