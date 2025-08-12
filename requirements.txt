@@ -1,0 +1,25 @@
+# MCP Server dependencies
+fastmcp>=2.11.0
+mcp>=1.10.0
+
+# Data processing dependencies
+pandas>=2.1.0
+numpy>=1.24.0
+
+# File handling
+pathlib2>=2.3.7
+
+# Logging
+loguru>=0.7.0
+
+# Web Dashboard dependencies
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# Additional dependencies for the core MCP server
+sqlite3  # Built-in Python module
+json     # Built-in Python module
+datetime # Built-in Python module
+re       # Built-in Python module
+asyncio  # Built-in Python module
+typing   # Built-in Python module

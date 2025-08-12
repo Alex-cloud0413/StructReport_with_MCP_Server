@@ -1,4 +1,4 @@
-# StructReport_with_MCP_Server# Driver Data MCP Server
+# Driver Data MCP Server
 
 智驾数据采集汇总半自动化方案的MCP Server实现。
 

@@ -1,0 +1,54 @@
+# driver-data-skill.yaml
+name: driver-data
+description: 智驾数据采集解析与汇总
+trigger_phrases:
+  - "解析司机汇报"
+  - "获取采集总览"
+  - "导出数据CSV"
+
+endpoints:
+  - name: parseReport
+    type: http
+    method: POST
+    url: http://<MCP_SERVER_HOST>:8080/rpc/parse_driver_report
+    input_mapping:
+      report_text: "{{ user_message | raw_text }}"
+    output_mapping:
+      driver_name: "$.driver_name"
+      vehicle_number: "$.vehicle_number"
+      collection_task: "$.collection_task"
+      collection_segments: "$.collection_segments"
+      collection_location: "$.collection_location"
+      collection_date: "$.collection_date"
+      collection_time_period: "$.collection_time_period"
+      driving_distance: "$.driving_distance"
+    response_template: |
+      已解析：
+      - 司机：{{ driver_name }}
+      - 车辆编号：{{ vehicle_number }}
+      - 任务：{{ collection_task }}
+      - 段数：{{ collection_segments }}
+      - 地点：{{ collection_location }}
+      - 日期：{{ collection_date }}
+      - 时段：{{ collection_time_period }}
+      - 里程：{{ driving_distance }}公里
+
+  - name: getSummary
+    type: http
+    method: GET
+    url: http://<MCP_SERVER_HOST>:8080/rpc/get_collection_summary
+    response_template: |
+      【采集总览】
+      - 汇报总数：{{ total_reports }}
+      - 司机人数：{{ total_drivers }}
+      - 总段数：{{ total_segments }}
+      - 总里程：{{ total_distance }}公里
+      - 采集城市分布：{{ locations }}
+      - 时段分布：{{ time_periods }}
+      - 最新更新时间：{{ latest_update }}
+
+  - name: exportCSV
+    type: http
+    method: GET
+    url: http://<MCP_SERVER_HOST>:8080/rpc/export_data_csv
+    response_template: "{{ export_message }}"
