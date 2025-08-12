@@ -4,7 +4,7 @@
 
 ## 项目简介
 
-本项目是一个基于MCP (Model Context Protocol) 的服务器，用于自动化处理智驾相关的数据采集、汇总和分析任务。
+本项目是一个基于MCP (Model Context Protocol) 的服务器，用于自动化处理、汇总和分析日常工作中【非结构化汇报内容】，V20250812以智驾数据采集业务为例。
 
 ## 核心功能
 
@@ -151,4 +151,5 @@ CREATE TABLE driver_reports (
 ## 许可证
 
 MIT License
+
 
